@@ -2,7 +2,6 @@ package com.api.parkingcontrol.models;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,43 +14,43 @@ import javax.persistence.Table;
 @Table(name = "tb_parking_spot")
 public class ParkingSpotModel implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private UUID id;
-	
-	@Column(nullable = false,unique = true, length = 10)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
+	@Column(nullable = false, unique = true, length = 10)
 	private String parkingSpotNumber;
-	
-	@Column(nullable = false,unique = true, length = 7)
+
+	@Column(nullable = false, unique = true, length = 7)
 	private String licensePlateCar;
-	
+
 	@Column(nullable = false, length = 70)
 	private String brandCar;
-	
+
 	@Column(nullable = false, length = 70)
 	private String modelCar;
-	
+
 	@Column(nullable = false, length = 70)
 	private String colorCar;
-	
+
 	@Column(nullable = false)
 	private LocalDateTime registrationDate;
-	
+
 	@Column(nullable = false, length = 130)
 	private String responsableName;
-	
+
 	@Column(nullable = false, length = 30)
 	private String apartment;
-	
+
 	@Column(nullable = false, length = 30)
 	private String block;
 
-	public UUID getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(UUID id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -130,7 +129,5 @@ public class ParkingSpotModel implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	
-	
 
 }
